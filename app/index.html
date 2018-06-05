@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blockly-demo</title>
+    <!--bootstrap-->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <!--app-->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+            Blockly Demo
+        </a>
+    </div>
+    <div class="container">
+        <form class="navbar-form navbar-left" role="search">
+            <button type="button" class="btn btn-primary" id="stepButton">
+                <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Run
+            </button>
+        </form>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+            <div class="row">
+                <div id="blocklyDiv" style="height: 600px; width: 100%;"></div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-6">
+            aaa
+        </div>
+    </div>
+</div>
+<xml id="toolbox" style="display: none">
+    <block type="start"></block>
+    <block type="move_forward"></block>
+    <block type="rotate"></block>
+</xml>
+
+<xml id="startBlocks" style="display: none">
+    <block type="move_forward" inline="true" x="20" y="20">
+        <field name="STEP">3</field>
+        <next>
+            <block type="rotate" inline="true">
+                <field name="ANGLE">90</field>
+                <next>
+                    <block type="move_forward" inline="true">
+                        <field name="STEP">2</field>
+                        <next>
+                            <block type="rotate" inline="true">
+                                <field name="ANGLE">90</field>
+                                <next>
+                                    <block type="move_forward" inline="true">
+                                        <field name="STEP">3</field>
+                                    </block>
+                                </next>
+                            </block>
+                        </next>
+                    </block>
+                </next>
+            </block>
+        </next>
+    </block>
+</xml>
+
+</body>
+<!--jquery, bootstrap-->
+<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--google-blockly-->
+<script src="vendors/google-blockly/demos/interpreter/acorn_interpreter.js"></script>
+<script src="vendors/google-blockly/blockly_compressed.js"></script>
+<script src="vendors/google-blockly/blocks_compressed.js"></script>
+<script src="vendors/google-blockly/javascript_compressed.js"></script>
+<script src="vendors/google-blockly/msg/js/en.js"></script>
+<!--app-->
+<script src="js/demo.js"></script>
+</html>
